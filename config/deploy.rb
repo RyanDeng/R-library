@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-set :application, 'SF-library'
-set :repo_url, 'https://github.com/shawzt/SF-library'
+set :application, 'R-library'
+set :repo_url, 'https://github.com/ryandeng/R-library'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -29,9 +29,7 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for default_env is {}
-set :default_env, { path: "$PATH",
-                    "http_proxy" => "http://proxy.sin.sap.corp:8080",
-                    "https_proxy" => "https://proxy.sin.sap.corp:8080"}
+set :default_env, { path: "$PATH"}
 
 set :rails_env, 'production'
 
