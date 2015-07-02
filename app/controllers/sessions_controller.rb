@@ -3,9 +3,6 @@ class SessionsController < ApplicationController
 
   def create
     user = User.on_board.find_by(email: params[:user][:email].downcase)
-    if user.nil? && /@successfactors.com/.match(params[:user][:email].downcase)
-      user = User.on_board.find_by(sf_email: params[:user][:email].downcase)
-    end
     respond_to do |format|
       if user.nil?
         flash[:error] = '邮箱不存在，请联系管理员'
