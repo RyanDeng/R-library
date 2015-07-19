@@ -3,7 +3,6 @@ require "open-uri"
 require "json"
 class BooksController < ApplicationController
   
-  before_action :signed_in_user, :profile_complete?, except: :show
   load_and_authorize_resource
   
   #new_hot

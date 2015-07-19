@@ -1,7 +1,7 @@
 #encoding: utf-8
 class BorrowsController < ApplicationController
 
-  before_action :signed_in_user, :profile_complete?
+  #before_action :signed_in_user
   load_and_authorize_resource
 
   def create

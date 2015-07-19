@@ -2,9 +2,6 @@
 <div class="row-fluid">
 	<% search_path = admin_users_path %>
 	<%= render partial: 'helper/search_box', locals: { path: search_path}%>
-	<div class="span3 offset2">
-		<button onclick="add_user('<%= new_user_path %>')" class="btn  btn-info">添加用户</button>	
-	</div>
 </div>	
 <%= will_paginate @users %>
 <div class="user container-fluid">

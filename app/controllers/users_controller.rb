@@ -1,7 +1,7 @@
 # encoding: utf-8
 class UsersController < ApplicationController
   
-  before_action :signed_in_user, only: [:index]
+  #before_action :signed_in_user, only: [:index]
   load_and_authorize_resource
   
   def index
@@ -11,27 +11,6 @@ class UsersController < ApplicationController
       format.html
     end
     
-  end
-  
-  def new
-    @new_page = true
-  end
-
-  def create
-    @new_page = true
-    respond_to do |format|
-      if current_user.super_admin?
-        @user = User.create(super_admin_create_params)
-      elsif current_user.admin?
-        @user = User.create(create_params)
-      end
-      if !@user.errors.any?
-        flash[:success] = '用户创建成功!'
-        format.html {redirect_to user_path(@user.id)}
-      else
-        format.html { render action: "new" }
-      end
-    end   
   end
 
   def show
@@ -148,7 +127,7 @@ class UsersController < ApplicationController
     end
 
     def admin_update_params
-      params.require(:user).permit(:email, :role, :name, :team, :building, :office, :seat, :i_number)
+      params.require(:user).permit(:role, :name, :team, :building, :office, :seat, :i_number)
     end
 
     def super_admin_create_params
