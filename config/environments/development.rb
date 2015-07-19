@@ -30,10 +30,12 @@ LibraryApp::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "mail.sap.corp",
+    :address => "smtp.exmail.qq.com",
     :port => 25,
-    :domain => "sap.com",
-    :authentication => "plain",
+    :domain => "exmail.qq.com",
+    :authentication => :login,
+    :user_name => "#",
+    :password => "#",
     :enable_starttls_auto => true,
     :openssl_verify_mode => 'none'
   }

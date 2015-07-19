@@ -2,9 +2,6 @@
 <div class="row-fluid">
 	<% search_path = admin_users_path %>
 	<%= render partial: 'helper/search_box', locals: { path: search_path}%>
-	<div class="span3 offset2">
-		<button onclick="add_user('<%= new_user_path %>')" class="btn  btn-info">添加用户</button>	
-	</div>
 </div>	
 <%= will_paginate @users %>
 <div class="user container-fluid">
@@ -14,7 +11,6 @@
 			<tr>
 				<th>姓名</th>
 				<th>团队</th>
-				<th>I/C Number</th>
 				<th>邮箱</th>
 				<th>权限</th>
 				<th>位置</th>
@@ -29,7 +25,6 @@
 				<% end%>
 				<td onclick="show_user('<%= user_path(user.id, admin: true)%>')"><%= user.name %></td>
 				<td onclick="show_user('<%= user_path(user.id, admin: true)%>')"><%= user.team %></td>
-				<td onclick="show_user('<%= user_path(user.id, admin: true)%>')"><%= user.i_number %></td>
 				<td onclick="show_user('<%= user_path(user.id, admin: true)%>')"><%= user.email %></td>
 				<td onclick="show_user('<%= user_path(user.id, admin: true)%>')"><%= user.role.text %></td>
 				<td onclick="show_user('<%= user_path(user.id, admin: true)%>')"><%= user.display_location %></td>
