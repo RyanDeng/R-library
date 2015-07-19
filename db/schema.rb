@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413090534) do
+ActiveRecord::Schema.define(version: 20150719125753) do
 
   create_table "blacklist_users", force: true do |t|
     t.integer  "user_id"
@@ -99,11 +99,7 @@ ActiveRecord::Schema.define(version: 20150413090534) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
-    t.string   "building"
     t.string   "office"
-    t.integer  "seat"
-    t.string   "sf_email"
-    t.string   "i_number"
   end
 
   create_table "votes", force: true do |t|

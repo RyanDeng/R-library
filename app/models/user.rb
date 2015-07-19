@@ -2,7 +2,6 @@
 class User < ActiveRecord::Base
   extend Enumerize
 
-  enumerize :building, in: [:PVG01, :PVG02, :PVG03, :PVG05, :PVG06], default: :PVG03
   enumerize :role, in: [:reader, :admin, :super_admin], default: :reader, predicates: true, scope: true
   enumerize :status, in: [:active, :inactive], scope: true, default: :active, predicates: true
 
@@ -45,8 +44,8 @@ class User < ActiveRecord::Base
   def self.search(search, page)
     if search.present?
       if (map_role_name = convert_role_translation(search)).nil?
-        where('name like ? or team like ? or building like ? or email like ? or office = ? or sf_email like ?',
-           "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%").paginate(page: page, per_page: BOOK_PER_PAGE)
+        where('name like ? or team like ? or email like ? or office = ? ',
+           "%#{search}%","%#{search}%","%#{search}%","#{search}").paginate(page: page, per_page: BOOK_PER_PAGE)
       else
         where('role = ?', map_role_name).paginate(page: page, per_page: BOOK_PER_PAGE)
       end
@@ -69,8 +68,7 @@ class User < ActiveRecord::Base
   end
 
   def display_location
-    seat_part = ('.' + self.seat.to_s) if !self.seat.nil?
-    self.building.to_s + ' ' + self.office.to_s + seat_part.to_s
+    self.office.to_s
   end
 
   def has_admin_authe
@@ -81,10 +79,6 @@ class User < ActiveRecord::Base
     borrow_count = self.borrows.with_status(:borrowing, :undelivery).count
     order_count = self.orders.with_status(:in_queue).count
     (borrow_count + order_count) >= 5 ? '同时借阅预订书籍的数量,最多为5本' : ''
-  end
-
-  def profile_not_complete?
-    return self.office.blank? || self.i_number.blank?
   end
 
   private

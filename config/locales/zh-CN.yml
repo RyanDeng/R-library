@@ -78,11 +78,7 @@ zh-CN:
         team: '团队'
         role: '权限'
         status: '状态'
-        building: 'PVG'
         office: '办公室'
-        seat: '座位编号'
-        sf_email: 'SF邮箱'
-        i_number: 'I/C Num'
         password_confirmation: '确认密码'
         password: '密码'
       borrow:

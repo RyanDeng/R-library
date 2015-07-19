@@ -10,10 +10,6 @@
           <label class="general"><%= @user.email %></label>
       </div>
       <div class="label-container">
-          <label class="general mark">I/C Num:</label>
-          <label class="general"><%= @user.i_number %></label>
-      </div>
-      <div class="label-container">
           <label class="general mark">权限:</label>
           <label class="general"><%= @user.role.text %></label>
       </div>
@@ -21,25 +17,9 @@
           <label class="general mark">团队:</label>
           <label class="general"><%= @user.team %></label>
       </div>
-      <div class="label-container">
-          <label class="general mark">SF邮箱:</label>
-          <label class="general"><%= @user.sf_email %></label>
-      </div>
-      <div class="row-fluid">
-        <div class="label-container" >
-          <div class="span4 ">
-            <label class="general mark">PVG:</label>
-            <label class="general"><%= @user.building %></label>
-          </div>
-          <div class="span4">
-            <label class="general mark">办公室:</label>
-            <label class="general"><%= @user.office %></label>
-          </div>
-          <div class="span4">
-            <label class="general mark">座位编号:</label>
-            <label class="general"><%= @user.seat %></label>
-          </div>
-        </div>
+      <div class="label-container" >
+          <label class="general mark">办公室:</label>
+          <label class="general"><%= @user.office %></label>
       </div>
   </div>
   <br/>
