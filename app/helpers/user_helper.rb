@@ -19,7 +19,7 @@ module UserHelper
         user = User.find_by(email: session[:cas_user] + EMAIL_DOMAIN)
         if user.nil?
           if User.create(session[:cas_user])
-            current_user = User.find_by(email: session[:cas_user] + EMAIL_DOMAIN)
+            self.current_user = User.find_by(email: session[:cas_user] + EMAIL_DOMAIN)
           else
             redirect_to '/500.html'
           end
