@@ -17,8 +17,6 @@
 
 /config/database.yml
 /test
-/config/environments/development.rb
-/config/environments/production.rb
 
 .DS_Store
 
