@@ -1,5 +1,5 @@
 class OverdueAlertMailer < ActionMailer::Base
-  default from: "dengchao@qiniu.com" # maybe use other email address, like "minerva.book.lib@sap.com"
+  default from: "library@qiniu.com" # maybe use other email address, like "minerva.book.lib@sap.com"
 
   def overdue_alert_to_user user,book
     @subject = "超期提醒: 您所借的<#{book.name}>已超期"

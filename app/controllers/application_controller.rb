@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter CASClient::Frameworks::Rails::Filter
 
-  #CASClient::Frameworks::Rails::Filter.fake("dengchao")
+  CASClient::Frameworks::Rails::Filter.fake("dengchao")
 
   before_action :signed_in_user
 

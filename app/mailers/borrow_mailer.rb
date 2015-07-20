@@ -1,5 +1,5 @@
 class BorrowMailer < ActionMailer::Base
-  default from: "dengchao@qiniu.com" # maybe use other email address, like "minerva.book.lib@sap.com"
+  default from: "library@qiniu.com" # maybe use other email address, like "minerva.book.lib@sap.com"
 
   def borrow_notification_to_admin borrow
     @book = borrow.book

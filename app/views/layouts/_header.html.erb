@@ -2,7 +2,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-			<%= link_to "Minerva's Book Library", root_path, id: "logo", class: "brand" %>
+			<%= link_to "Minerva's Library", root_path, id: "logo", class: "brand" %>
 				<ul class="nav pull-right">
 					<li class="active divider-vertical"><a onclick="show_user('<%= user_path(current_user.id)%>')"><i class="icon-white icon-user"></i>
 						<%= current_user.display_name  %></a>

@@ -34,7 +34,7 @@ LibraryApp::Application.configure do
     :port => 25,
     :domain => "exmail.qq.com",
     :authentication => :login,
-    :user_name => "#",
+    :user_name => "library@qiniu.com",
     :password => "#",
     :enable_starttls_auto => true,
     :openssl_verify_mode => 'none'

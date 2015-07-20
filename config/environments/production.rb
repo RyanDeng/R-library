@@ -79,10 +79,12 @@ LibraryApp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   config.action_mailer.smtp_settings = {
-    :address => "mail.sap.corp",
+    :address => "smtp.exmail.qq.com",
     :port => 25,
-    :domain => "sap.com",
-    :authentication => "plain",
+    :domain => "exmail.qq.com",
+    :authentication => :login,
+    :user_name => "library@qiniu.com",
+    :password => "#",
     :enable_starttls_auto => true,
     :openssl_verify_mode => 'none'
   }
