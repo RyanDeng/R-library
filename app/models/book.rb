@@ -19,6 +19,7 @@ class Book < ActiveRecord::Base
   validates :total, numericality: { only_integer: true }
   validates :category, :name, presence: true
   validate :total_greater_than_borrowing, on: :update #when update total, cannot be less than current borrowing
+  validate :store_not_greater_than_total, on: :update
 
   before_update :change_store_count
   before_create :set_store_count
@@ -144,6 +145,14 @@ class Book < ActiveRecord::Base
       borrows = borrowing_list
       if total < borrows.count
         errors.add(:base, '总数不能小于当前出借数量')
+      end
+    end
+  end
+
+  def store_not_greater_than_total
+    if total == total_was
+      if store > total 
+        errors.add(:base, '非法操作，库存将会大于总数')
       end
     end
   end
